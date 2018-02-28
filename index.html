@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title></title>
+
+<link rel="stylesheet" href="css/css_main.css" />
+<!--<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" /> -->
+<link rel="stylesheet" href="css/tigo-theme.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.icons.min.css" />
+<link rel="stylesheet" href="css/jquery.mobile.structure-1.4.5.min.css" /> 
+<link rel="stylesheet" href="css/xpull.css"/>
+
+</head>
+<body onresize="resizer()">
+<!--- Splash  -->
+<div id="bg_login" style="position:absolute; background-color:#080870; z-index:10; width:100%;" >
+</div>
+<!-- Fin Login Frame -->
+
+<div data-role="page" data-theme="c" id="page" hidden>
+    <div data-role="header" id="dvHead" data-position="fixed">
+        <div class="ui-grid-a" id="subHead">
+            <a href="#dvMenu" id="btnM" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon" style="border:none; margin-right:6px; margin-left:6px; display:none"></a>
+            <span id="dvtitle">xxxx</span>
+            <a href="#dvMenuConfig" id="btnM" style="float:right; border:none; margin-right:6px;" class="ui-btn ui-icon-power ui-btn-icon-notext ui-nodisc-icon" onclick="logout()"></a>
+        </div>
+    </div>
+    <div role="main" id='dvContentG' class="ui-content" style="padding:0px;">
+        <!-- Dv Main -->
+        <div id="dvMain" style="margin:15px"> 
+            <div><img src="img/hnmap.png" width="100%" /> </div>
+            <img id="btn_tack" style="margin-top:-50px; margin-left:35%; cursor:pointer" src="img/play.png" width="100px" onclick="tracking()" /> <br />
+            <center><label style="font-family:cambria; align:center" id="msj">Start Tracking</label>  </center>
+            <hr / >
+            <div id="test"></div>
+        </div>
+        <!-- div main -->  
+    </div>
+    <!-- end dvMain -->
+
+
+    <!-- Menu Lateral -->
+    <div data-role="panel" id="dvMenu" style="background-color:#080870; color:#D8D8D8">
+        <ul data-role="listview">
+            <li data-icon="false">
+                <a href="#" style="width:70%" onclick="switchMenu(1, 'Sales Operation-BOC',0,0)"><h3>Home</h3></a>
+                <a href="#" style="width:15%; margin:1px; height:40px; float:right; border:0px; align:right" class="ui-btn ui-icon-delete ui-icon-notext" data-rel="close" data-target="#dvMenu"></a>
+            </li>            
+        </ul>
+    </div>
+    <!-- Fin Menu -->
+    
+</div>
+
+</body>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+<!--<script type="text/javascript" src="cordova.js"></script>-->
+<script type="text/javascript" src="js/xpull.js"></script>
+<script type="text/javascript" src="js/js_main.js"></script>
+<script type="text/javascript" src="js/js_db.js"></script>
+<!--<script type="text/javascript" src="js/js_eventos_sms.js"></script>-->
+<!--<script type="text/javascript" src="js/toast.js"></script>-->
+<script type="text/javascript">  
+    app.initialize();
+
+    resizer();  
+
+    // jquery document ready
+    $(function () {
+    // Init xpull plugin for demo
+        $('#dvMain').xpull({
+            'callback': function () {
+                KPIsmain(0);  
+                //consultSVR();              
+                console.log('Released...');
+            }
+        });
+    });
+function resizer(){
+
+    $("#bg_login").css('min-height', $(window).height());
+    $("#dvContentG").css('min-height', $(window).height()-45);
+}  
+
+
+</script>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title></title>
+
+<link rel="stylesheet" href="css/css_main.css" />
+<style>
+
+body{
+    margin: 0 auto;
+    padding:0;
+}
+</style>
+<!--<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" /> -->
+
+</head>
+<body onresize="resizer()">
+    <!--- Background  -->
+    <div id="bg_login" style="position:absolute; background-color:#080870; z-index:10; width:100%;" >
+        <!--- Login  -->
+        <div class="c_anime_div" style="width:60%; float:left; padding:0px; margin-top:70px; margin-left:18%" id="frm_login">
+            <center>
+                <img src="img/logo.png" width="115px" height="110px" /><br />
+                <label style="color:white; font-family:calibri; font-size:1.1em">Tracking SCS</label>
+            </center>
+            <br />
+            <div><center>
+                <input type="text" id="user" placeholder="Usuario" style="margin-bottom:6px; padding:5px;"/>
+                <input type="password" id="pwd" placeholder="Clave" style="margin-bottom:8px; padding:5px"/>
+                <center><button id="btn_login" data-theme="a" onclick="login()" style="width:65%; background-color: green; color:#FFF; border:gray; height:30px">LogIn</button></center>
+                <br /><center><span id="msj_err" class="ms_alert"></span></center>
+                </center>
+                <br /><span class="version_c">v1.0 BOC</span>
+            </div>                
+        </div>
+
+    </div>
+    <!-- Fin Login Frame -->
+</body>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+
+<!--<script type="text/javascript" src="cordova.js"></script>-->
+<script type="text/javascript" src="js/xpull.js"></script>
+<script type="text/javascript" src="js/js_login.js"></script>
+<script type="text/javascript" src="js/js_db.js"></script>
+<!--<script type="text/javascript" src="js/js_eventos_sms.js"></script>
+<script type="text/javascript" src="js/toast.js"></script>-->
+<script type="text/javascript">  
+    app.initialize();
+
+    resizer();  
+    
+    // jquery document ready
+    $(function () {
+    // Init xpull plugin for demo
+        $('#dvMain').xpull({
+            'callback': function () {
+                KPIsmain(0);  
+                //consultSVR();              
+                console.log('Released...');
+            }
+        });
+    });
+function resizer(){
+
+    $("#bg_login").css('min-height', $(window).height());
+    $("#dvContentG").css('min-height', $(window).height()-45);
+    //resizeMap();
+}  
+
+
+</script>
+</html>
